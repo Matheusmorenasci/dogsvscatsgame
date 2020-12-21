@@ -33,7 +33,7 @@ function handleClick(event) {
             var gameOverScreen = document.getElementsByClassName("gameOverScreen")[0];
             gameOverScreen.style.display = "block";
             var winnerDeclaration = document.getElementById("winnerDeclaration");
-            winnerDeclaration.innerText += '' + winner[playerTime];
+            winnerDeclaration.innerText = `${winner[playerTime]} wins!`;
         }, 10);
     };
     updateSquare(position);

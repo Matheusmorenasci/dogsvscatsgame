@@ -11,7 +11,7 @@ body{
 }
 
 h1 {
-    font-size: 38px;
+    font-size: 30px;
     margin-bottom: 15px;
 }
 
@@ -42,7 +42,25 @@ h1 {
     background-color: #bb9167;
     display: inline-block;
     border-radius: 20px;
+}
 
+@keyframes changeSize{
+    0% {width: 60px; height: 60px;}
+    50% {width: 55px; height: 55px;}
+    100% {width: 60px; height: 60px;}
+}
+.square:hover{
+    border: 10px solid#bb9167;
+    background-color: #846052;
+}
+
+.square:active {
+    animation-name: changeSize;
+    animation-duration: 400ms;
+    animation-timing-function: linear;
+    -webkit-animation-name: changeSize;
+    -webkit-animation-duration: 400ms;
+    -webkit-animation-timing-function: linear;
 }
 
 #o {
@@ -102,7 +120,7 @@ h3 {
     font-family: 'Pacifico', cursive;
     font-size: 24px;
     position: absolute;
-    top: 70%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
