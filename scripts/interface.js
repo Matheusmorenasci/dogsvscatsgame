@@ -14,28 +14,31 @@ function handleClick(event) {
     var square = event.target;
     var position = square.id;
 
+    //Alguém ganhou?
     if (handleMove(position)) {
-        
-    if(playerTime === 0){
-        var dogScoreVar = localStorage.getItem("dogScore");
-        dogScoreVar++
-        localStorage.setItem("dogScore", dogScoreVar);
-    } else {
-        var catScoreVar = localStorage.getItem("catScore");
-        catScoreVar++
-        localStorage.setItem("catScore", catScoreVar);       
-    }
 
-    let titleScore = document.getElementById("titleScore");
-    titleScore.innerText = `Dogs ${localStorage.getItem("dogScore")} x ${localStorage.getItem("catScore")} Cats`;
+        //Atualize o score
+        if (playerTime === 0) {
+            var dogScoreVar = localStorage.getItem("dogScore");
+            dogScoreVar++;
+            localStorage.setItem("dogScore", dogScoreVar);
+        } else {
+            var catScoreVar = localStorage.getItem("catScore");
+            catScoreVar++;
+            localStorage.setItem("catScore", catScoreVar);
+        }
+        var titleScore = document.getElementById("titleScore");
+        titleScore.innerText = 'Dogs ' + localStorage.getItem("dogScore") + ' x ' + localStorage.getItem("catScore") + ' Cats';
 
+        //Mostre a tela de GameOver
         setTimeout(function () {
             var gameOverScreen = document.getElementsByClassName("gameOverScreen")[0];
-            gameOverScreen.style.display = "block";
+            gameOverScreen.style.display = "flex";
             var winnerDeclaration = document.getElementById("winnerDeclaration");
-            winnerDeclaration.innerText = `${winner[playerTime]} wins!`;
+            winnerDeclaration.innerHTML = winner[playerTime] + ' won!<br>Now the other pet goes first.';
         }, 10);
-    };
+    }
+
     updateSquare(position);
 }
 
@@ -51,10 +54,14 @@ function resetGame() {
     var gameOverScreen = document.getElementsByClassName("gameOverScreen")[0];
     gameOverScreen.style.display = "none";
     var winnerDeclaration = document.getElementById("winnerDeclaration");
-    winnerDeclaration.innerHTML = "The winner is:</br>";
+    winnerDeclaration.innerHTML = "";
 
     board = ['', '', '', '', '', '', '', '', ''];
-    playerTime = 0;
+    if (playerTime == 0) {
+        playerTime = 1;
+    } else {
+        playerTime = 0;
+    };
     gameOver = false;
 
     var squares = document.querySelectorAll(".square");

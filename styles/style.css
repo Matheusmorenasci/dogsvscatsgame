@@ -103,34 +103,33 @@ a{
     font-size: 14px;
 }
 
-h3 {
-    font-size: 38px;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#winnerDeclaration {
+    font-size: 30px;
+    max-width: 220px;
 }
 
 .resetButton {
-    padding: 15px;
+    margin-top: 15px;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
     border-radius: 15px;
     border: none;
     background-color:  #bb9167;
     color: white;
     font-family: 'Pacifico', cursive;
     font-size: 24px;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+}  
 
 .gameOverScreen{
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.6);
     display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
 }

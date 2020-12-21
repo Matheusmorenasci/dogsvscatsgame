@@ -23,7 +23,7 @@ function handleMove(position) {
     if (board[position] == '') {
         board[position] = symbols[playerTime];
 
-        gameOver = isWin();
+        gameOver = isWinOrTie();
 
         if (!gameOver) {
             playerTime = playerTime == 0 ? 1 : 0;
@@ -33,7 +33,7 @@ function handleMove(position) {
     }
 }
 
-function isWin() {
+function isWinOrTie() {
 
     for (var i = 0; i < winStates.length; i++) {
 
@@ -47,5 +47,21 @@ function isWin() {
             return true;
         }
     }
+
+    function isFilled(space) {
+        return space != '';
+    }
+
+    if (board.every(function (space) {
+        return space != '';
+    })) {
+        setTimeout(function () {
+            var gameOverScreen = document.getElementsByClassName("gameOverScreen")[0];
+            gameOverScreen.style.display = "flex";
+            var winnerDeclaration = document.getElementById("winnerDeclaration");
+            winnerDeclaration.innerHTML = 'Nobody won!<br>Now the other pet goes first.';
+        }, 10);
+    };
+
     return false;
 }
