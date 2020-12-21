@@ -15,6 +15,19 @@ function handleClick(event) {
     var position = square.id;
 
     if (handleMove(position)) {
+        
+    if(playerTime === 0){
+        var dogScoreVar = localStorage.getItem("dogScore");
+        dogScoreVar++
+        localStorage.setItem("dogScore", dogScoreVar);
+    } else {
+        var catScoreVar = localStorage.getItem("catScore");
+        catScoreVar++
+        localStorage.setItem("catScore", catScoreVar);       
+    }
+
+    let titleScore = document.getElementById("titleScore");
+    titleScore.innerText = `Dogs ${localStorage.getItem("dogScore")} x ${localStorage.getItem("catScore")} Cats`;
 
         setTimeout(function () {
             var gameOverScreen = document.getElementsByClassName("gameOverScreen")[0];
