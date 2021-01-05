@@ -95,8 +95,9 @@ h1 {
 
 a{
     text-decoration: none;
-    color: black;
+    color: #846052;
     position: relative;
+    top: 10px;
     bottom: 0px;
     left: 0;
     right: 0;
@@ -144,10 +145,15 @@ a{
     .square {
         width: 60px;
         height: 60px;
-        border: 15px solid #846052;
+        border: 10px solid #846052;
         background-color: #bb9167;
         display: inline-block;
-        border-radius: 25px;
+        border-radius: 20px;
+    }
+
+    .square:hover{
+        border: 10px solid#bb9167;
+        background-color: #846052;
     }
 
     #o::after{
@@ -174,7 +180,7 @@ a{
     
     a{
         text-decoration: none;
-        color: black;
+        color: #846052;
         position: relative;
         top: 10px;
         bottom: 0px;
@@ -206,6 +212,24 @@ a{
         border-radius: 30px;
     }
 
+    @keyframes changeSize{
+        0% {width: 80px; height: 80px;}
+        50% {width: 75px; height: 75px;}
+        100% {width: 80px; height: 80px;}
+    }
+    .square:hover{
+        border: 15px solid#bb9167;
+        background-color: #846052;
+    }
+    
+    .square:active {
+        animation-name: changeSize;
+        animation-duration: 400ms;
+        animation-timing-function: linear;
+        -webkit-animation-name: changeSize;
+        -webkit-animation-duration: 400ms;
+        -webkit-animation-timing-function: linear;
+    }
     #o::after{
         content: "\1F436";
         position: absolute;
@@ -230,7 +254,7 @@ a{
     
     a{
         text-decoration: none;
-        color: black;
+        color: #846052;
         position: relative;
         top: 10px;
         bottom: 0px;
