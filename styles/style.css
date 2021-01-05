@@ -133,3 +133,115 @@ a{
     flex-direction: column;
     top: 0;
 }
+
+@media screen and (min-width: 700px){
+    
+    h1 {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+    
+    .square {
+        width: 60px;
+        height: 60px;
+        border: 15px solid #846052;
+        background-color: #bb9167;
+        display: inline-block;
+        border-radius: 25px;
+    }
+
+    #o::after{
+        content: "\1F436";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        font-size: 45px;
+        line-height: 60px;
+    }
+    
+    #x::after{
+        content: "\1F431";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        font-size: 45px;
+        line-height: 60px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+        position: relative;
+        top: 10px;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        font-size: 14px;
+    }
+    
+    #winnerDeclaration {
+        font-size: 35px;
+        max-width: 260px;
+    }
+    
+}
+
+@media screen and (min-width: 800px){
+    
+    h1 {
+        font-size: 50px;
+        margin-bottom: 15px;
+    }
+    
+    .square {
+        width: 80px;
+        height: 80px;
+        border: 15px solid #846052;
+        background-color: #bb9167;
+        display: inline-block;
+        border-radius: 30px;
+    }
+
+    #o::after{
+        content: "\1F436";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        font-size: 55px;
+        line-height: 80px;
+    }
+    
+    #x::after{
+        content: "\1F431";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        font-size: 55px;
+        line-height: 80px;
+    }
+    
+    a{
+        text-decoration: none;
+        color: black;
+        position: relative;
+        top: 10px;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        font-size: 14px;
+    }
+    
+    #winnerDeclaration {
+        font-size: 40px;
+        max-width: 320px;
+    }
+    
+}
