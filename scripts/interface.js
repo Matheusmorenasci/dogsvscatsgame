@@ -1,57 +1,33 @@
 'use strict';
 
-// Movi a "importação" das tags para cima 
-var squares = document.querySelectorAll(".square");
-let titleScore = document.getElementById("titleScore");
-// O ideal é usar let e não var, pesquisando o Google vc descobre o pq e acho que o Igor fala em um momento do curso.
-
-// Vai exutar quando o HTML carregar
 document.addEventListener('DOMContentLoaded', function () {
+
+    var squares = document.querySelectorAll(".square");
 
     squares.forEach(function (square) {
         square.addEventListener('click', handleClick);
     });
-
-    // Aqui precisamos verificar se existe um score salvo e inserir na pagina
-    let dogScoreVar = localStorage.getItem("dogScore");
-    let catScoreVar = localStorage.getItem("catScore");
-
-    // Se dog ou cat foram undefined eu seto 0 no localstorage pra não dar erro no código lá na frente.
-    if (!dogScoreVar || !catScoreVar) {
-        localStorage.setItem("dogScore", 0);
-        localStorage.setItem("catScore", 0);
-    } else {
-        setarScore(dogScoreVar, catScoreVar)
-    }
 });
-
-// Vou criar uma função que seta o score porque vou usar em dois lugares
-const setarScore = (dogScore, catScore) => {
-    titleScore.innerText = `Dogs ${dogScore} x ${catScore} Cats`;
-    // Com Templete String fica mais elegante, pesquisa no Google: Templete String MDN
-}
 
 function handleClick(event) {
 
     var square = event.target;
     var position = square.id;
 
-    let dogScoreVar = localStorage.getItem("dogScore");
-    let catScoreVar = localStorage.getItem("catScore");
-
     //Alguém ganhou?
     if (handleMove(position)) {
 
         //Atualize o score
         if (playerTime === 0) {
+            var dogScoreVar = localStorage.getItem("dogScore");
             dogScoreVar++;
             localStorage.setItem("dogScore", dogScoreVar);
         } else {
+            var catScoreVar = localStorage.getItem("catScore");
             catScoreVar++;
             localStorage.setItem("catScore", catScoreVar);
         }
-
-        setarScore(dogScoreVar, catScoreVar)
+        var titleScore = document.getElementById("titleScore");
         titleScore.innerText = 'Dogs ' + localStorage.getItem("dogScore") + ' x ' + localStorage.getItem("catScore") + ' Cats';
 
         //Mostre a tela de GameOver
